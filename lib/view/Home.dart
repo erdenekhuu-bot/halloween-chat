@@ -14,6 +14,8 @@ class Home extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Listcolor.backgroundColor,
+            iconTheme: const IconThemeData(color: Listcolor.textWhite),
+            foregroundColor: Listcolor.textWhite,
             bottom: const TabBar(
               tabs: [
                 Tab(child: Text('Members',style: TextStyle(color: Listcolor.textWhite))),

@@ -13,8 +13,10 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login',style: TextStyle(color: Listcolor.textWhite)),
+        iconTheme: const IconThemeData(color: Listcolor.textWhite),
         backgroundColor: Listcolor.backgroundColor,
+        foregroundColor: Listcolor.textWhite,
+        title: Text('Login',style: TextStyle(color: Listcolor.textWhite)),
       ),
       body: Column(
         children: [
