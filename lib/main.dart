@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'app/Route.dart';
+import 'view/Login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,44 +12,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.black)),
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text('CHATROOM FREE'),
+        ),
+        body: Column(
+          children: [
+            SizedBox(
+              child: Image.asset('assets/pic.png'),
+            ),
+            const SizedBox(height: 40),
+            Center(child: Text('Welcome to new member',style: TextStyle(fontSize: 30))),
+            const SizedBox(height: 40),
+            ElevatedButton(onPressed: null, child: Text('Visit chatroom', style: TextStyle(color: Colors.black),)),
+            ElevatedButton(onPressed: ()=>Get.toNamed(Routes.login), child: Text('Register member', style: TextStyle(color: Colors.black),))
+          ],
+        ),
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
       ),
-      body: Center(child: Text('${_counter}')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      initialRoute: Routes.main,
+      getPages: [
+        GetPage(name: Routes.login, page: ()=>Login())
+      ],
     );
   }
 }
