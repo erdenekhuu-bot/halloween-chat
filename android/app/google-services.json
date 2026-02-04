@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345351434908",
+    "project_id": "calcswift-nbkg2",
+    "storage_bucket": "calcswift-nbkg2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345351434908:android:c1b1788c769b2e3c8df359",
+        "android_client_info": {
+          "package_name": "mn.erdenee.halloween"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtAXJJFlNzAeOqsjeNfKW3KJDwJDkvMBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
