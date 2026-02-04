@@ -36,10 +36,26 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.3
   flutter_launcher_icons: ^0.14.4
+  firebase_core: ^4.4.0
 
 flutter_icons:
-  android: true
+  android: "launcher_icon"
   image_path: "assets/icon/icon.png"
+  min_sdk_android: 21
+  ios: false
+  web:
+    generate: true
+    image_path: "assets/icon/image.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/icon/image.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "assets/icon/image.png"
+
 
 
 dev_dependencies:
@@ -68,6 +84,8 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
     - assets/pic.png
+    - assets/icon/icon.png
+    - assets/icon/image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
