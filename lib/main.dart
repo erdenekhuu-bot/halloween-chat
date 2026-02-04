@@ -5,6 +5,7 @@ import 'app/Route.dart';
 import 'view/Login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'utils/ListColor.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('CHATROOM FREE'),
+          backgroundColor: Listcolor.backgroundColor,
+          title: Text('CHATROOM FREE',style: TextStyle(color: Listcolor.textWhite)),
         ),
         body: Column(
           children: [

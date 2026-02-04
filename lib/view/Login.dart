@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/ListColor.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,8 +13,9 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary),
+        title: Text('Login',style: TextStyle(color: Listcolor.textWhite)),
+        backgroundColor: Listcolor.backgroundColor,
+      ),
       body: Column(
         children: [
           SizedBox(
