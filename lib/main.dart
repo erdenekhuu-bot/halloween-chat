@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           title: Text('CHATROOM FREE',style: TextStyle(color: Listcolor.textWhite)),
         ),
         body: Column(
-          children: [
+          children: <Widget>[
             SizedBox(
               child: Image.asset('assets/pic.png'),
             ),
