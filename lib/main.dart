@@ -6,6 +6,7 @@ import 'view/Login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'utils/ListColor.dart';
+import 'view/SignUp.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,15 +37,15 @@ class MyApp extends StatelessWidget {
             Center(child: Text('Welcome to new member',style: TextStyle(fontSize: 30))),
             const SizedBox(height: 40),
             ElevatedButton(onPressed: ()=>Get.toNamed(Routes.home), child: Text('Visit chatroom', style: TextStyle(color: Colors.black),)),
-            ElevatedButton(onPressed: ()=>Get.toNamed(Routes.login), child: Text('Join member', style: TextStyle(color: Colors.black),))
+            ElevatedButton(onPressed: ()=>Get.toNamed(Routes.signup), child: Text('Join member', style: TextStyle(color: Colors.black),))
           ],
         ),
 
       ),
       initialRoute: Routes.main,
       getPages: [
-        GetPage(name: Routes.login, page: ()=>Login()),
-        GetPage(name: Routes.home, page: ()=>Home())
+        GetPage(name: Routes.home, page: ()=>Home()),
+        GetPage(name: Routes.signup, page: ()=>SignUp())
       ],
     );
   }
