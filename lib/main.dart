@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             const SizedBox(height: 40),
             Center(child: Text('Welcome to new member',style: TextStyle(fontSize: 30))),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: ()=>Get.toNamed(Routes.home), child: Text('Visit chatroom', style: TextStyle(color: Colors.black),)),
+            ElevatedButton(onPressed: ()=>Get.toNamed(Routes.login), child: Text('Visit chatroom', style: TextStyle(color: Colors.black),)),
             ElevatedButton(onPressed: ()=>Get.toNamed(Routes.signup), child: Text('Join member', style: TextStyle(color: Colors.black),))
           ],
         ),
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.main,
       getPages: [
         GetPage(name: Routes.home, page: ()=>Home()),
-        GetPage(name: Routes.signup, page: ()=>SignUp())
+        GetPage(name: Routes.signup, page: ()=>SignUp()),
+        GetPage(name: Routes.login, page: ()=>Login())
       ],
     );
   }
