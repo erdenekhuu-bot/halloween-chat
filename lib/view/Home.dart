@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:halloween/utils/Stack.dart';
 import '../view/Member.dart';
 import '../utils/ListColor.dart';
+import '../app/Route.dart';
 import '../view/Media.dart';
 import '../view/CallHistories.dart';
+import '../http/CallAPI.dart';
+import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -15,6 +19,14 @@ class Home extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Listcolor.backgroundColor,
             iconTheme: const IconThemeData(color: Listcolor.textWhite),
+            // leading: Icon(Icons.arrow_back),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () async {
+                  final response = await CallAPI.logout(StackMemory.getToken());
+                  if(response == 1) Get.toNamed(Routes.login);
+              },
+            ),
             foregroundColor: Listcolor.textWhite,
             bottom: const TabBar(
               tabs: [

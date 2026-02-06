@@ -65,7 +65,6 @@ class _LoginState extends State<Login> {
                     child: ElevatedButton(
                       onPressed: () async {
                           int response = await CallAPI.login(nameController.value.text, passwordController.value.text);
-                          print(StackMemory.getToken());
                           nameController.clear();
                           passwordController.clear();
                           if(response == 1) Get.toNamed(Routes.home);
