@@ -22,6 +22,12 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Listcolor.textWhite),
         backgroundColor: Listcolor.backgroundColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.toNamed(Routes.main);
+          },
+        ),
         foregroundColor: Listcolor.textWhite,
         title: Text('Login',style: TextStyle(color: Listcolor.textWhite)),
       ),

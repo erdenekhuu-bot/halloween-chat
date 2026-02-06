@@ -19,11 +19,11 @@ class Home extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Listcolor.backgroundColor,
             iconTheme: const IconThemeData(color: Listcolor.textWhite),
-            // leading: Icon(Icons.arrow_back),
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () async {
                   final response = await CallAPI.logout(StackMemory.getToken());
+                  StackMemory.setToken('');
                   if(response == 1) Get.toNamed(Routes.login);
               },
             ),

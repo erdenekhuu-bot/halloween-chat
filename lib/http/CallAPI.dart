@@ -50,26 +50,6 @@ class CallAPI {
     }
   }
 
-  static Future<List<dynamic>> listMember(String name, String token) async {
-    try {
-      final response = await http.get(
-        Uri.parse('http://192.168.6.144:8000/api/list/?search=$name'),
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Token $token",
-        },
-      );
-
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body);
-      } else {
-        return [];
-      }
-    } catch (e) {
-      print(e);
-      return [];
-    }
-  }
 
   static Future<int> logout(String token) async {
     try {
