@@ -17,7 +17,6 @@ class _MemberState extends State<Member> {
   Timer? _debounce;
 
   List<dynamic> _members = [];
-  final String token = StackMemory.getToken();
 
   @override
   void initState() {
@@ -37,28 +36,27 @@ class _MemberState extends State<Member> {
   }
 
   Future<void> _fetchMembers(String search) async {
-    try {
-      final base = Uri.parse('http://192.168.6.144:8000/api/list/');
-      final uri = search.isEmpty ? base : base.replace(queryParameters: {"search": search});
-      final response = await http.get(
-        uri,
-        headers: {
-          "Accept": "application/json",
-          "Authorization": "Token $token",
-        },
-      );
+    final base = Uri.parse('http://192.168.6.144:8000/api/list/');
+    final uri = search.isEmpty ? base : base.replace(
+        queryParameters: {"search": search});
+    final response = await http.get(
+      uri,
+      headers: {
+        "Accept": "application/json",
+        "Authorization": "Token ${StackMemory.getToken()}",
+      },
+    );
 
-      if (response.statusCode == 200) {
-        final decoded = jsonDecode(utf8.decode(response.bodyBytes));
+    if (response.statusCode == 200) {
+      final decoded = jsonDecode(utf8.decode(response.bodyBytes));
 
-        final List<dynamic> items = decoded is List ? decoded : (decoded["results"] ?? []);
+      final List<dynamic> items = decoded is List
+          ? decoded
+          : (decoded["results"] ?? []);
 
-        if (mounted) {
-          setState(() => _members = items);
-        }
+      if (mounted) {
+        setState(() => _members = items);
       }
-    } catch (e) {
-      print(e);
     }
   }
 
@@ -87,9 +85,7 @@ class _MemberState extends State<Member> {
             itemCount: _members.length,
             itemBuilder: (context, i) {
               final m = _members[i];
-
               final name = m['username'].toString();
-
               return ListTile(
                 leading: const Icon(Icons.person),
                 title: Text(name),

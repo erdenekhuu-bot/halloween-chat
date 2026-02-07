@@ -23,6 +23,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      theme: ThemeData(
+          useMaterial3: true,
+          scaffoldBackgroundColor: Colors.white,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.white,
+            primary: Colors.grey,
+            secondary: Colors.grey,
+          ),
+
+      ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Listcolor.backgroundColor,
