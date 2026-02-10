@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:halloween/utils/ListColor.dart';
+import 'package:halloween/app/GlobalController.dart';
+import 'package:halloween/app/Route.dart';
+import 'package:get/get.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -9,6 +12,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final Globalcontroller globalcontroller = Get.put(Globalcontroller.to);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +20,9 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Listcolor.backgroundColor,
         iconTheme: const IconThemeData(color: Listcolor.textWhite),
         foregroundColor: Listcolor.textWhite,
-        title: Text('PROFILE',style: TextStyle(color: Listcolor.textWhite)),
+        title: Text('${globalcontroller.getName()}',style: TextStyle(color: Listcolor.textWhite)),
       ),
-      body: Column(
-        children: [
-          Text('123')
-        ],
-      ),
+      body: Center(child: Text('Chat screen')),
     );
   }
 }

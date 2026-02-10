@@ -5,6 +5,8 @@ import 'package:halloween/utils/Stack.dart';
 import 'package:http/http.dart' as http;
 import 'package:halloween/model/MembersModel.dart';
 import 'package:get/get.dart';
+import 'package:halloween/app/GlobalController.dart';
+import 'package:halloween/app/Route.dart';
 
 class Member extends StatefulWidget {
   const Member({super.key});
@@ -15,6 +17,7 @@ class Member extends StatefulWidget {
 
 class _MemberState extends State<Member> {
   final TextEditingController memberController = TextEditingController();
+  final Globalcontroller globalcontroller = Get.put(Globalcontroller.to);
 
   Timer? _debounce;
 
@@ -93,7 +96,8 @@ class _MemberState extends State<Member> {
                    : null,
                 title: Text(member.username),
                 onTap: (){
-                  // Get.toNamed(Routes.profile);
+                  globalcontroller.setName(member.username);
+                  Get.toNamed(Routes.profile);
                 },
               );
             },

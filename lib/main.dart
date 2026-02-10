@@ -8,8 +8,10 @@ import 'firebase_options.dart';
 import 'utils/ListColor.dart';
 import 'view/SignUp.dart';
 import 'package:halloween/view/Profile.dart';
+import 'package:halloween/app/GlobalController.dart';
 
 void main() async {
+  Get.put(Globalcontroller());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
