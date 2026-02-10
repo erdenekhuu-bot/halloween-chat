@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'utils/ListColor.dart';
 import 'view/SignUp.dart';
+import 'package:halloween/view/Profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,7 +57,8 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: Routes.home, page: ()=>Home()),
         GetPage(name: Routes.signup, page: ()=>SignUp()),
-        GetPage(name: Routes.login, page: ()=>Login())
+        GetPage(name: Routes.login, page: ()=>Login()),
+        GetPage(name: Routes.profile, page: ()=>Profile()),
       ],
     );
   }

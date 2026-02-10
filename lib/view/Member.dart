@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:halloween/utils/Stack.dart';
 import 'package:http/http.dart' as http;
+import 'package:halloween/model/MembersModel.dart';
+import 'package:get/get.dart';
 
 class Member extends StatefulWidget {
   const Member({super.key});
@@ -16,7 +18,7 @@ class _MemberState extends State<Member> {
 
   Timer? _debounce;
 
-  List<dynamic> _members = [];
+  List<MembersModel> _members = [];
 
   @override
   void initState() {
@@ -50,12 +52,12 @@ class _MemberState extends State<Member> {
     if (response.statusCode == 200) {
       final decoded = jsonDecode(utf8.decode(response.bodyBytes));
 
-      final List<dynamic> items = decoded is List
-          ? decoded
-          : (decoded["results"] ?? []);
+      List<MembersModel> items = (decoded['results'] as List)
+          .map((memberJson) => MembersModel.fromJson(memberJson as Map<String, dynamic>))
+          .toList();
 
       if (mounted) {
-        setState(() => _members = items);
+        setState(() => _members = items);;
       }
     }
   }
@@ -84,11 +86,15 @@ class _MemberState extends State<Member> {
           child: ListView.builder(
             itemCount: _members.length,
             itemBuilder: (context, i) {
-              final m = _members[i];
-              final name = m['username'].toString();
+              final member = _members[i];
               return ListTile(
-                leading: const Icon(Icons.person),
-                title: Text(name),
+                leading: member.profile != null
+                    ? Image.network('http://192.168.6.144:8000'+member.profile!.image!, width: 50, height: 50, fit: BoxFit.cover)
+                   : null,
+                title: Text(member.username),
+                onTap: (){
+                  // Get.toNamed(Routes.profile);
+                },
               );
             },
           ),

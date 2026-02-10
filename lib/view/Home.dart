@@ -8,6 +8,7 @@ import '../view/CallHistories.dart';
 import '../http/CallAPI.dart';
 import 'package:get/get.dart';
 
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -44,6 +45,7 @@ class Home extends StatelessWidget {
               CallHistories(),
             ],
           ),
+          floatingActionButton: FloatingActionButton(onPressed: ()=>Get.toNamed(Routes.profile), child: Icon(Icons.contact_emergency)),
         ),
     );
   }
